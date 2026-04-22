@@ -1,0 +1,6 @@
+## `src/project_name/mkdocs.yml`
+
+site_name: Project Tool
+
+nav:
+  - Overview: index.md

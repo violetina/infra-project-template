@@ -1,0 +1,12 @@
+git init -b main
+
+# add your starter files here
+git add .
+git commit -m "chore: initial infra project template"
+
+# with gh cli
+gh repo create meemoo-IaC/infra-project-template \
+  --private \
+  --source=. \
+  --remote=origin \
+  --push
