@@ -31,7 +31,7 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    A(["1. Snapshot/Backup"]) --> B["2. Drain Node"]
+    A(["1. Snapshot/Backup"]) --> B["2. Block traffic / stop  Node"]
     B --> C["3. Apply Patch/Upgrade"]
     C --> D{"4. Health Check"}
     D -- Pass --> E["5. Uncordon/Restore Traffic"]

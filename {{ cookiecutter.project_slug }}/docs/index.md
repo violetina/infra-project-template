@@ -1,19 +1,15 @@
-# Overview
+# {{ cookiecutter.project_name }}
 
-This repository documents an infrastructure-focused project.
+{{ cookiecutter.description }}
 
-## Goals
+## Type
 
-- keep operational context close to code
-- make recurring work reusable
-- generate as much reference material as possible
-- publish a clean subset to Confluence
+- {{ cookiecutter.workflow_type  }}
 
-## Sections
+## {{ cookiecutter.task_type }}
 
-- **Architecture**: landscape and technical structure
-- **Workflow**: runbooks, sequences, migrations
-- **Makefile targets**: generated command reference
-- **Troubleshooting**: known issues and fixes
+## TODO
+
+add JIRA tickets here too
 
 

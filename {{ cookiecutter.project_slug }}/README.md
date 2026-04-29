@@ -1,6 +1,6 @@
 # {{ cookiecutter.project_name }}
 
-## { cookiecutter.project_name }}
+## {{ cookiecutter.project_name }}
 
 ## Quick start
 
@@ -28,12 +28,11 @@ make docs-confluence-publish - publish Confluence docs
 
 ---
 
-### Add description here
-```
-**
-```
+## Description
 
-#### WIP
+###  {{ cookiecutter.workflow_type }}
+
+ {{ cookiecutter.description }}
 
 ---
 

@@ -1,5 +1,5 @@
 site_name: {{ cookiecutter.project_name }}
-site_description: Documentation for {{ cookiecutter.environment_type }}
+site_description: Documentation for {{ cookiecutter.description }}
 
 
 site_url: https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}
@@ -63,7 +63,7 @@ extra_javascript:
 nav:
   - Overview: index.md
   - Architecture: architecture.md
-  - Workflow: workflow.md
+  - Workflow {{ cookiecutter.task_type }}: workflow.md
   - Makefile targets: makefile-targets.md
   - Troubleshooting: troubleshooting.md
 {%- if cookiecutter.include_tools == 'y' %}
