@@ -1,8 +1,10 @@
-site_name: Infra Project Template
-site_description: Starter template for infra documentation
-site_url: https://github.com/meemoo-IaC/infra-project-template
-repo_url: https://github.com/meemoo-IaC/infra-project-template
-repo_name: meemoo-IaC/infra-project-template
+site_name: {{ cookiecutter.project_name }}
+site_description: Documentation for {{ cookiecutter.environment_type }}
+
+
+site_url: https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}
+repo_url: https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}
+repo_name: {{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}
 
 docs_dir: docs
 
@@ -64,6 +66,8 @@ nav:
   - Workflow: workflow.md
   - Makefile targets: makefile-targets.md
   - Troubleshooting: troubleshooting.md
+{%- if cookiecutter.include_tools == 'y' %}
   - Tools:
-      - Project Tool: '!include ./src/project_name/mkdocs.yml'
+      - {{ cookiecutter.tool_name }}: '!include ./src/{{ cookiecutter.tool_name }}/mkdocs.yml'
+{%- endif %}
 

@@ -1,0 +1,12 @@
+{
+    "project_name": "Meemoo Infra Template",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "github_org": "violetina",
+    "workflow_type": ["blue-green", "in-place-upgrade", "standard"],
+    "author_name": "Tina",
+    "environment_type": ["poc", "patch", "upgrade"],
+    "include_makefile": "y",
+    "include_tools": ["y", "n"],
+    "tool_name": "my_awesome_tool"
+}
+
