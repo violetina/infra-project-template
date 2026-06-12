@@ -63,6 +63,7 @@ nav:
   - Architecture: architecture.md
   - Workflow: workflow.md
   - Makefile targets: makefile-targets.md
+  - Makefile graph: makeflow.md
   - Troubleshooting: troubleshooting.md
   - Tools:
       - Project Tool: '!include ./src/project_name/mkdocs.yml'
