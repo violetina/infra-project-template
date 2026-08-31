@@ -1,6 +1,6 @@
-## `src/project_name/mkdocs.yml`
+## `src/{{ cookiecutter.tool_name }}/mkdocs.yml`
 
-site_name: Project Tool
+site_name: "{{ cookiecutter.project_name }} tool"
 
 nav:
   - Overview: index.md

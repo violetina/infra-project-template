@@ -2,7 +2,6 @@ SHELL := /bin/bash
 
 VENV ?= .venv
 PYTHON := $(VENV)/bin/python
-PIP := $(VENV)/bin/pip
 MKDOCS := $(VENV)/bin/mkdocs
 
 TOOLS_DIR := .tools/bin
@@ -14,7 +13,7 @@ MAKE2GRAPH_REF ?= master
 
 .DEFAULT_GOAL := help
 
-.PHONY: help venv install docs docs-live docs-write docs-confluence-prep \
+.PHONY: help venv install install-confluence docs docs-live docs-write docs-confluence-prep \
         docs-confluence-publish deps-make2graph view_makeflow lint format \
         test clean clean-tools
 
@@ -25,9 +24,13 @@ help: ## Show available targets
 venv: ## Create virtual environment
 	python3 -m venv $(VENV)
 
-install: venv ## Install dependencies
-	$(PIP) install --upgrade pip
-	$(PIP) install -r requirements.txt
+install: venv ## Install documentation dependencies and the local package
+	$(PYTHON) -m pip install --upgrade pip
+	$(PYTHON) -m pip install -r requirements.txt
+	$(PYTHON) -m pip install -e ".[dev]"
+
+install-confluence: install ## Install optional Confluence publishing dependencies
+	$(PYTHON) -m pip install -r requirements-confluence.txt
 
 deps-make2graph: ## Fetch and build makefile2graph locally
 	@mkdir -p "$(TOOLS_DIR)" "$(CACHE_DIR)"
@@ -74,13 +77,13 @@ view_makeflow: ## Open generated SVG locally
 	xdg-open docs/assets/makeflow.svg
 
 lint: ## Run lint checks
-	@echo "Add ruff/yamllint/markdownlint here"
+	$(PYTHON) -m compileall -q main.py tools $$(test -d src && printf src)
 
 format: ## Run formatters
 	@echo "Add ruff format / prettier here"
 
 test: ## Run tests
-	@echo "Add pytest here"
+	@if [ -d tests ]; then $(PYTHON) -m pytest -v; else echo "No tests/ directory yet"; fi
 
 clean-tools: ## Remove cached helper tools
 	rm -rf "$(TOOLS_DIR)" "$(CACHE_DIR)"
