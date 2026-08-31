@@ -1,0 +1,6 @@
+## `src/{{ cookiecutter.tool_name }}/mkdocs.yml`
+
+site_name: "{{ cookiecutter.project_name }} tool"
+
+nav:
+  - Overview: index.md

@@ -1,8 +1,9 @@
-site_name: Infra Project Template
-site_description: Starter template for infra documentation
-site_url: https://github.com/meemoo-IaC/infra-project-template
-repo_url: https://github.com/meemoo-IaC/infra-project-template
-repo_name: meemoo-IaC/infra-project-template
+site_name: "{{ cookiecutter.project_name }}"
+site_description: "Documentation for {{ cookiecutter.description }}"
+
+site_url: "https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}"
+repo_url: "https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}"
+repo_name: "{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}"
 
 docs_dir: docs
 
@@ -29,6 +30,7 @@ plugins:
             show_source: false
   - mermaid2
   - glightbox
+  - mkdocs_graphviz
 
 markdown_extensions:
   - admonition
@@ -50,20 +52,17 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:mermaid2.fence_mermaid_custom
 
-  - mkdocs_graphviz:
-      priority: 96
-
 extra_javascript:
   - https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js
-  # This allows Mermaid to render correctly in the browser
   - https://unpkg.com/mermaid/dist/mermaid.min.js
 
 nav:
   - Overview: index.md
   - Architecture: architecture.md
-  - Workflow: workflow.md
+  - Workflow {{ cookiecutter.task_type }}: workflow.md
   - Makefile targets: makefile-targets.md
   - Troubleshooting: troubleshooting.md
+{%- if cookiecutter.include_tools == 'y' %}
   - Tools:
-      - Project Tool: '!include ./src/project_name/mkdocs.yml'
-
+      - {{ cookiecutter.tool_name }}: '!include ./src/{{ cookiecutter.tool_name }}/mkdocs.yml'
+{%- endif %}

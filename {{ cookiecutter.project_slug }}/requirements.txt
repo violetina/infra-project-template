@@ -12,7 +12,9 @@ mkdocstrings==1.0.3
 mkdocstrings-python==2.0.3
 hvac
 python-dotenv
-mkdocs-graphviz==1.5.3
+requests>=2.32.0
+rich>=13.8.0
+mkdocs-graphviz>=1.5.3
 mkdocs-mermaid2-plugin
-mkdocs-confluence-publisher
-mkdocs-glightbox==0.5.2
+mkdocs-glightbox>=0.5.2
+cookiecutter>=2.7.1
